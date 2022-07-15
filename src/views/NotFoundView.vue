@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="h-screen w-screen bg-gray-50 flex items-center w-full overflow-hidden"
-  >
+  <div class="h-screen bg-gray-50 flex items-center w-full overflow-hidden">
     <div
       class="container flex flex-col md:flex-row items-center justify-between px-5 text-gray-700"
     >

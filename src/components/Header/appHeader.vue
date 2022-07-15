@@ -39,7 +39,9 @@
           <div class="flex flex-col md:flex-row md:mx-6 gap-1">
             <header-navigation-link to="/"> Home </header-navigation-link>
 
-            <header-navigation-link to="/products">Shop</header-navigation-link>
+            <header-navigation-link to="/products"
+              >Products</header-navigation-link
+            >
 
             <header-navigation-link to="/about"> About </header-navigation-link>
           </div>

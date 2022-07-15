@@ -4,38 +4,70 @@ import HomeView from "../views/HomeView.vue";
 import ProductView from "../views/ProductView.vue";
 import AboutView from "../views/AboutView.vue";
 import NotFoundView from "../views/NotFoundView.vue";
+import ProductsView from "../views/ProductsView.vue";
+/* Categories */
+import EquipmentsView from "@/views/Categories/EquipmentsView.vue";
+import GraphicCardsView from "@/views/Categories/GraphicCardsView.vue";
+import DisplaysView from "@/views/Categories/DisplaysView.vue";
+import ComputerView from "@/views/Categories/ComputerView.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
+  /* Home Route */
   {
     path: "/",
     name: "home",
     component: HomeView,
   },
-  {
-    path: "/product/:id",
-    name: "product",
-    component: ProductView,
-  },
+  /* About Us Route */
   {
     path: "/about",
     name: "about",
     component: AboutView,
   },
+  /* Single Product Route */
+  {
+    path: "/product/:id",
+    name: "product",
+    component: ProductView,
+  },
+  /* Multi Products Route */
+  {
+    path: "/products",
+    name: "products",
+    component: ProductsView,
+  },
+  /* 404 Not Found Route */
   {
     path: "*",
     name: "404",
     component: NotFoundView,
   },
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  // }
+  /* Category -> Equipments Route*/
+  {
+    path: "/category/equipments",
+    name: "equipments",
+    component: EquipmentsView,
+  },
+  /* Category -> Graphic Cards Route*/
+  {
+    path: "/category/graphic-cards",
+    name: "graphic-cards",
+    component: GraphicCardsView,
+  },
+  /* Category -> Displays Route*/
+  {
+    path: "/category/displays",
+    name: "displays",
+    component: DisplaysView,
+  },
+  /* Category -> Computer Route*/
+  {
+    path: "/category/computer",
+    name: "computer",
+    component: ComputerView,
+  },
 ];
 
 const router = new VueRouter({

@@ -30,28 +30,28 @@
             <home-category-card
               image="https://d3fa68hw0m2vcc.cloudfront.net/e40/213023508.jpeg"
               title="Equipments"
-              to="/equipments"
+              to="/category/equipments"
             ></home-category-card>
             <!-- Card End -->
             <!--Card Start -->
             <home-category-card
               image="https://productimages.hepsiburada.net/s/12/375/8884777320498.jpg"
               title="Graphic Cards"
-              to="/graphic-cards"
+              to="/category/graphic-cards"
             ></home-category-card>
             <!-- Card End -->
             <!--Card Start -->
             <home-category-card
               image="https://www.lg.com/tr/images/monitor/md07545569/gallery/D02.jpg"
               title="Displays"
-              to="/displays"
+              to="/category/displays"
             ></home-category-card>
             <!-- Card End -->
             <!--Card Start -->
             <home-category-card
               image="https://media-cdn.bnn.in.th/129512/amd-cpu-ryzen-7-5700g-gen5-2-square_medium.jpg"
               title="Computer"
-              to="/computer"
+              to="/category/computer"
             ></home-category-card>
             <!-- Card End -->
           </div>
