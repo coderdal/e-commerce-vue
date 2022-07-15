@@ -1,10 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import ProductView from "../views/ProductView.vue";
-import AboutView from "../views/AboutView.vue";
-import NotFoundView from "../views/NotFoundView.vue";
-import ProductsView from "../views/ProductsView.vue";
+import HomeView from "@/views/HomeView.vue";
+import ProductView from "@/views/ProductView.vue";
+import AboutView from "@/views/AboutView.vue";
+import NotFoundView from "@/views/NotFoundView.vue";
+import ProductsView from "@/views/ProductsView.vue";
+import BasketView from "@/views/BasketView.vue";
 /* Categories */
 import EquipmentsView from "@/views/Categories/EquipmentsView.vue";
 import GraphicCardsView from "@/views/Categories/GraphicCardsView.vue";
@@ -67,6 +68,12 @@ const routes = [
     path: "/category/computer",
     name: "computer",
     component: ComputerView,
+  },
+  /* Basket Route*/
+  {
+    path: "/basket",
+    name: "basket",
+    component: BasketView,
   },
 ];
 
