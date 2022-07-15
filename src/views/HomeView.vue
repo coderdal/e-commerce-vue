@@ -1,12 +1,25 @@
 <template>
   <div class="home">
-    <h1 class="text-3xl font-bold underline text-red-500">Hello world!</h1>
+    <home-header />
+
+    <!-- main-->
+
+    <home-main />
   </div>
 </template>
 
 <script>
+import HomeHeader from "@/components/Home/homeHeader.vue";
+
+import HomeMain from "@/components/Home/homeMain.vue";
+
 export default {
   name: "HomeView",
-  components: {},
+  components: {
+    HomeHeader,
+    HomeMain,
+  },
 };
 </script>
+
+HomeHeader
