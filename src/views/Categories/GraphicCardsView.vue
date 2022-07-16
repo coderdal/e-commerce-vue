@@ -1,9 +1,20 @@
 <template>
-  <h1>graphic cards view</h1>
+  <products-list-template title="Graphic Cards">
+    <product-card />
+  </products-list-template>
 </template>
 
 <script>
-export default {};
+import productsListTemplate from "@/components/productsListTemplate.vue";
+import productCard from "@/components/productCard.vue";
+
+export default {
+  name: "GraphicCardsCategory",
+  components: {
+    productsListTemplate,
+    productCard,
+  },
+};
 </script>
 
 <style></style>

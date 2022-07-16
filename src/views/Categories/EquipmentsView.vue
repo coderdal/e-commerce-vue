@@ -1,9 +1,20 @@
 <template>
-  <h1>Equipments Page</h1>
+  <products-list-template title="Equipments">
+    <product-card />
+  </products-list-template>
 </template>
 
 <script>
-export default {};
+import productsListTemplate from "@/components/productsListTemplate.vue";
+import productCard from "@/components/productCard.vue";
+
+export default {
+  name: "EquipmentsCategory",
+  components: {
+    productsListTemplate,
+    productCard,
+  },
+};
 </script>
 
 <style></style>

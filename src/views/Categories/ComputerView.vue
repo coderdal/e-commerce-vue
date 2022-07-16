@@ -1,9 +1,20 @@
 <template>
-  <h1>Computer View example</h1>
+  <products-list-template title="Computer & Parts">
+    <product-card />
+  </products-list-template>
 </template>
 
 <script>
-export default {};
+import productsListTemplate from "@/components/productsListTemplate.vue";
+import productCard from "@/components/productCard.vue";
+
+export default {
+  name: "ComputerCategory",
+  components: {
+    productsListTemplate,
+    productCard,
+  },
+};
 </script>
 
 <style></style>
