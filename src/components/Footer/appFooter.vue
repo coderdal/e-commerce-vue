@@ -14,9 +14,6 @@
           <a href="https://www.linkedin.com/in/muhammederdal/">
             <linkedinIcon />
           </a>
-          <a href="#">
-            <img src="atis-assets/social/instagram.svg" alt="" />
-          </a>
         </div>
       </div>
     </div>

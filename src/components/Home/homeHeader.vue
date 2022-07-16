@@ -35,37 +35,7 @@
             </div>
           </div>
           <div class="w-full lg:w-1/2 px-4 flex items-center justify-center">
-            <div class="relative" style="z-index: 0">
-              <img
-                class="h-128 w-full max-w-lg object-cover rounded-3xl md:rounded-br-none"
-                src="https://assets.entrepreneur.com/content/3x2/2000/1615446883-20210311-111410-0000.png"
-                alt=""
-              />
-              <img
-                class="hidden md:block absolute"
-                style="top: -2rem; right: 3rem; z-index: -1"
-                src="atis-assets/elements/green-dark-up.svg"
-                alt=""
-              />
-              <img
-                class="hidden md:block absolute"
-                style="bottom: -2rem; right: -2rem; z-index: -1"
-                src="atis-assets/elements/wing-green-down.svg"
-                alt=""
-              />
-              <img
-                class="hidden md:block absolute"
-                style="top: 3rem; right: -3rem; z-index: -1"
-                src="atis-assets/elements/bullets-gray-right.svg"
-                alt=""
-              />
-              <img
-                class="hidden md:block absolute"
-                style="bottom: 2.5rem; left: -4.5rem; z-index: -1"
-                src="atis-assets/elements/bullets-gray-left.svg"
-                alt=""
-              />
-            </div>
+            <div class="relative" style="z-index: 0"></div>
           </div>
         </div>
       </div>

@@ -1,27 +1,31 @@
 <template>
-  <!-- <h1>this is a product page {{ this.$route.params.id }}</h1> -->
-  <div class="bg-white">
+  <loading-page v-if="isLoading" />
+
+  <div class="bg-white" v-else>
     <main class="my-8">
       <div class="container mx-auto px-6">
         <div class="md:flex md:items-center">
           <div class="w-full h-64 md:w-1/2 lg:h-96">
             <img
               class="h-full w-full rounded-md object-cover max-w-lg mx-auto"
-              src="https://images.unsplash.com/photo-1578262825743-a4e402caab76?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
-              alt="Nike Air"
+              :src="data.image"
+              :alt="data.title"
             />
           </div>
           <div class="w-full max-w-lg mx-auto mt-5 md:ml-8 md:mt-0 md:w-1/2">
-            <h3 class="text-gray-800 uppercase text-lg mb-2">Nike Air</h3>
-            <span class="text-gray-600 font-bold mt-3 text-base">$125</span>
+            <h3 class="text-gray-800 uppercase text-lg mb-2">
+              {{ data.title }}
+            </h3>
+            <span class="text-gray-600 font-bold mt-3 text-base"
+              >${{ data.price }}</span
+            >
             <p class="text-base w-11/12 text-gray-600 mt-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut,
-              harum!
+              {{ data.description }}
             </p>
             <p class="text-base w-11/12 text-gray-600 mt-2">
               Last
               <span class="text-gray-600 font-bold mt-3 text-base">{{
-                stock
+                data.stock
               }}</span>
               items in stock.
             </p>
@@ -136,13 +140,20 @@
 </template>
 
 <script>
+import axios from "axios";
+import loadingPage from "@/components/loadingPage.vue";
+
 export default {
   name: "ProductView",
+  components: {
+    loadingPage,
+  },
   data() {
     return {
       count: 0,
-      stock: 10,
       showToast: false,
+      isLoading: true,
+      data: {},
     };
   },
   methods: {
@@ -152,17 +163,57 @@ export default {
       }
     },
     increaseCount() {
-      if (this.count < this.stock) {
+      if (this.count < this.data.stock) {
         this.count++;
       }
     },
     addToBasket() {
+      if (this.$store.state.basket.find((item) => item.id === this.data.id)) {
+        /* If product is already in the basket */
+
+        const newObj = this.$store.state.basket.find(
+          (item) => item.id === this.data.id
+        );
+
+        newObj.count += this.count;
+        newObj.totalPrice += this.count * newObj.price;
+
+        this.$store.state.basket = this.$store.state.basket.filter(
+          (item) => item.id !== this.data.id
+        );
+
+        this.$store.state.basket = [...this.$store.state.basket, newObj];
+      } else {
+        /* First Time to add to basket */
+
+        this.$store.state.basket = [
+          ...this.$store.state.basket,
+          {
+            count: this.count,
+            totalPrice: this.count * this.data.price,
+            ...this.data,
+          },
+        ];
+      }
+
       this.count = 0;
       this.showToast = true;
+
       setTimeout(() => {
         this.showToast = false;
       }, 2000);
     },
+  },
+  async created() {
+    try {
+      const res = await axios.get(
+        "http://localhost:3001/product/" + this.$route.params.id
+      );
+      this.data = res.data;
+      this.isLoading = false;
+    } catch (e) {
+      console.error(e);
+    }
   },
 };
 </script>
