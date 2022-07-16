@@ -6,12 +6,9 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     basket: [],
-    isLoading: true,
   },
   getters: {},
-  mutations: {
-    getWholeProducts() {},
-  },
+  mutations: {},
   actions: {},
   modules: {},
 });

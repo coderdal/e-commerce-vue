@@ -8,7 +8,7 @@
 
 <script>
 import appHeader from "@/components/Header/appHeader.vue";
-import AppFooter from "./components/Footer/appFooter.vue";
+import AppFooter from "@/components/Footer/appFooter.vue";
 
 export default {
   components: {
