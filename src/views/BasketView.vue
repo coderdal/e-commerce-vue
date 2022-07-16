@@ -1,5 +1,18 @@
 <template>
-  <div class="container mx-auto mt-10">
+  <div
+    class="container mx-auto mt-40 mb-60 text-center"
+    v-if="!basket.length > 0"
+  >
+    <h2 class="mb-10 text-2xl text-gray-900">
+      There is no item in your basket.
+    </h2>
+    <router-link
+      to="/"
+      class="cursor-pointer h-10 px-5 m-2 p-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+      >Continue Shopping</router-link
+    >
+  </div>
+  <div class="container mx-auto mt-10" v-else>
     <div class="flex shadow-md my-10">
       <div class="w-3/4 bg-white px-10 py-10">
         <div class="flex justify-between border-b pb-8">
@@ -28,19 +41,21 @@
         </div>
 
         <!-- Basket item -->
-        <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+        <div
+          class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5"
+          v-for="item in basket"
+          :key="item.id"
+        >
           <div class="flex w-2/5">
             <!-- product -->
             <div class="w-20">
-              <img
-                class="h-24"
-                src="https://drive.google.com/uc?id=18KkAVkGFvaGNqPy2DIvTqmUH_nk39o3z"
-                alt=""
-              />
+              <img class="h-24" :src="item.image" alt="" />
             </div>
             <div class="flex flex-col justify-between ml-4 flex-grow">
-              <span class="font-bold text-sm">Iphone 6S</span>
-              <span class="text-red-500 text-xs">Apple</span>
+              <span class="font-bold text-sm">{{ item.title }}</span>
+              <span class="text-gray-600 text-xs capitalize">{{
+                item.category
+              }}</span>
               <a
                 href="#"
                 class="font-semibold hover:text-red-500 text-gray-500 text-xs"
@@ -49,22 +64,37 @@
             </div>
           </div>
           <div class="flex justify-center w-1/5">
-            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+            <svg
+              class="cursor-pointer fill-current text-gray-600 w-3"
+              viewBox="0 0 448 512"
+            >
               <path
                 d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
               />
             </svg>
 
-            <input class="mx-2 border text-center w-8" type="text" value="1" />
+            <input
+              class="mx-2 border text-center w-8"
+              type="text"
+              :value="item.count"
+              readonly
+            />
 
-            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+            <svg
+              class="cursor-pointer fill-current text-gray-600 w-3"
+              viewBox="0 0 448 512"
+            >
               <path
                 d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
               />
             </svg>
           </div>
-          <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
-          <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
+          <span class="text-center w-1/5 font-semibold text-sm"
+            >${{ item.price }}</span
+          >
+          <span class="text-center w-1/5 font-semibold text-sm"
+            >${{ item.totalPrice }}</span
+          >
         </div>
         <!-- Basket item -->
 
@@ -135,7 +165,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "BasketView",
+  data() {
+    return {
+      basket: this.$store.state.basket,
+    };
+  },
+  mounted() {
+    // this.basket = this.$store.state.basket;
+  },
+};
 </script>
 
 <style></style>
