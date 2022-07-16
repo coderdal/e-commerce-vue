@@ -43,8 +43,8 @@ export default {
       default: "Dolor Sit",
     },
     price: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: "0",
     },
     id: {
       type: Number,
