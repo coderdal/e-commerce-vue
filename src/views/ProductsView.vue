@@ -1,9 +1,14 @@
 <template>
-  <h1>Products View</h1>
+  <products-list />
 </template>
 
 <script>
-export default {};
+import ProductsList from "@/components/Products/ProductsList.vue";
+export default {
+  components: {
+    ProductsList,
+  },
+};
 </script>
 
 <style></style>

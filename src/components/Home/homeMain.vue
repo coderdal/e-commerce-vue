@@ -12,7 +12,7 @@
           </div>
           <div class="w-full lg:w-1/2">
             <p class="max-w-xs lg:mx-auto text-gray-500 leading-loose">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum?
+              Choose a category and start shopping!
             </p>
           </div>
         </div>
