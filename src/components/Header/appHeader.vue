@@ -14,7 +14,7 @@
             </router-link>
           </div>
 
-          <!-- Mobile menu button -->
+          <!-- Mobile menu toggle button -->
           <div class="flex md:hidden" @click="toggleMenu">
             <button
               type="button"
@@ -82,5 +82,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

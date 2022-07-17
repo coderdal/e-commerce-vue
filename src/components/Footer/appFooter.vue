@@ -8,10 +8,10 @@
           © 2022. All rights reserved by Muhammed Erdal.
         </p>
         <div class="flex space-x-2 lg:space-x-4 justify-center">
-          <a href="https://github.com/coderdal">
+          <a target="_blank" href="https://github.com/coderdal">
             <githubIcon />
           </a>
-          <a href="https://www.linkedin.com/in/muhammederdal/">
+          <a target="_blank" href="https://www.linkedin.com/in/muhammederdal/">
             <linkedinIcon />
           </a>
         </div>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+//Import icons
 import DashedLine from "@/components/Home/dashedLine.vue";
 
 import githubIcon from "@/components/icons/githubIcon.vue";
@@ -35,5 +36,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

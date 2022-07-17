@@ -2,7 +2,7 @@
   <loading-page v-if="isLoading" />
 
   <products-list-template title="Top Selling Products" v-else>
-    <!-- Product List -->
+    <!-- Product List Start -->
 
     <product-card
       v-for="product in data"
@@ -45,5 +45,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
