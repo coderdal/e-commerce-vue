@@ -206,7 +206,8 @@ export default {
   async created() {
     try {
       const res = await axios.get(
-        "http://localhost:3001/product/" + this.$route.params.id
+        "https://e-commerce-vue-api.herokuapp.com/product/" +
+          this.$route.params.id
       );
       this.data = res.data;
       this.isLoading = false;

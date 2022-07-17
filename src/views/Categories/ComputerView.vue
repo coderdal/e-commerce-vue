@@ -35,7 +35,9 @@ export default {
   },
   async created() {
     try {
-      const res = await axios.get("http://localhost:3001/products/computer");
+      const res = await axios.get(
+        "https://e-commerce-vue-api.herokuapp.com/products/computer"
+      );
       this.data = res.data;
       this.isLoading = false;
     } catch (e) {
