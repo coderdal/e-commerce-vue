@@ -216,10 +216,7 @@ export default {
   computed: {
     totalCost() {
       if (this.basket.length > 1) {
-        return this.basket.reduce(
-          (total, object) => total + object.totalPrice,
-          0
-        );
+        return this.$store.getters.getTotalCost;
       } else {
         return this.basket[0].totalPrice;
       }

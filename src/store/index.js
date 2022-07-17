@@ -7,7 +7,14 @@ export default new Vuex.Store({
   state: {
     basket: [],
   },
-  getters: {},
+  getters: {
+    getTotalCost(state) {
+      return state.basket.reduce(
+        (total, object) => total + object.totalPrice,
+        0
+      );
+    },
+  },
   mutations: {
     setBasket(state, value) {
       // get parameter as array and set state
