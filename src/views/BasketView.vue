@@ -180,9 +180,12 @@ export default {
   },
   methods: {
     removeItem(id) {
-      this.$store.state.basket = this.$store.state.basket.filter(
+      const filtered = this.$store.state.basket.filter(
         (item) => item.id !== id
       );
+
+      this.$store.commit("setBasket", filtered);
+
       this.basket = this.$store.state.basket;
     },
 
@@ -214,7 +217,8 @@ export default {
     totalCost() {
       if (this.basket.length > 1) {
         return this.basket.reduce(
-          (acc, number) => acc.totalPrice + number.totalPrice
+          (total, object) => total + object.totalPrice,
+          0
         );
       } else {
         return this.basket[0].totalPrice;

@@ -175,25 +175,24 @@ export default {
           (item) => item.id === this.data.id
         );
 
+        // calculate new values of product
         newObj.count += this.count;
         newObj.totalPrice += this.count * newObj.price;
 
-        this.$store.state.basket = this.$store.state.basket.filter(
+        const filtered = this.$store.state.basket.filter(
           (item) => item.id !== this.data.id
         );
 
-        this.$store.state.basket = [...this.$store.state.basket, newObj];
+        this.$store.commit("setBasket", filtered);
+
+        this.$store.commit("addToBasket", newObj);
       } else {
         /* First Time to add to basket */
-
-        this.$store.state.basket = [
-          ...this.$store.state.basket,
-          {
-            count: this.count,
-            totalPrice: this.count * this.data.price,
-            ...this.data,
-          },
-        ];
+        this.$store.commit("addToBasket", {
+          count: this.count,
+          totalPrice: this.count * this.data.price,
+          ...this.data,
+        });
       }
 
       this.count = 0;
